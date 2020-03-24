@@ -18,6 +18,11 @@ section p {
     line-height: 1.5em;
 }
 
+section.active-class {
+    background-color: #900c3f;
+    color: #f9e1e1;
+}
+
 footer p {
     text-align: center;
 }
