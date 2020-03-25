@@ -40,6 +40,15 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const observer = new IntersectionObserver(function(entries, observer) {
         entries.forEach(entry => {
+
+            // TODO: Highlight the intersecting section in the navigation bar
+            /*
+            console.log(entry.target.id);
+            if(entry.target.id === "section1" && entry.isIntersecting){
+                // Highlight navigation list item
+            }
+            */
+
             // If target is not intersecting, exit this function
             if (!entry.isIntersecting) {
                 entry.target.classList.remove('active');
