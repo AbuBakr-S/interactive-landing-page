@@ -30,6 +30,10 @@ section {
     margin: 10vh auto;
 }
 
+hr {
+    margin-bottom: 5vh;
+}
+
 section p {
     line-height: 1.5em;
 }
