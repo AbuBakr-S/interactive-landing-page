@@ -18,8 +18,10 @@ nav.navbar ul li {
 }
 
 nav ul.list {
+    padding: 0;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 h1 {
@@ -49,4 +51,16 @@ section.active-class {
 
 footer p {
     text-align: center;
+}
+
+@media only screen and (max-width: 500px) {
+    nav ul.list {
+        padding: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul.list li {
+        padding-bottom: 1vh;
+    }
 }
