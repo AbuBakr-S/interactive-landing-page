@@ -45,7 +45,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.remove('active');
                 return;
             }
-            console.log(entry.target);
             entry.target.classList.toggle('active');
         });
     }, options);
@@ -53,6 +52,5 @@ window.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         observer.observe(section);
     });
-
 
 });

@@ -8,7 +8,20 @@ body {
 }
 
 h1 {
-    margin-top: 10vh;
+    margin-top: 25vh;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    background-color: #b8ecfc;
+}
+
+.list {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 2.5vw;
 }
 
 nav.navbar ul li {
@@ -17,11 +30,14 @@ nav.navbar ul li {
     padding: 0;
 }
 
-nav ul.list {
-    padding: 0;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+nav.navbar ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+nav.navbar ul li a:hover {
+    color: #000;
+    text-decoration: underline;
 }
 
 h1 {
@@ -31,7 +47,7 @@ h1 {
 section {
     max-width: 800px;
     transition: background-color 0.4s ease;
-    border: 0.2em solid #581845;
+    border: 0.2em solid #0F546A;
     padding: 5vw;
     box-sizing: border-box;
     margin: 10vh auto;
@@ -46,22 +62,33 @@ section p {
 }
 
 .active {
-    background-color: #900c3f;
-    color: #f9e1e1;
+    background-color: #1D81A1;
+    color: #fff;
 }
 
 footer p {
     text-align: center;
 }
 
-@media only screen and (max-width: 500px) {
-    nav ul.list {
-        padding: 0;
-        flex-direction: column;
-        align-items: center;
+/* Mobile */
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        margin-top: 10vh;
     }
 
-    nav ul.list li {
+    .navbar {
+        position: relative;
+        top: 0;
+    }
+
+    .list {
+        padding: 5vw;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
+
+    nav.navbar ul li {
         padding-bottom: 1vh;
     }
 }
