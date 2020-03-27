@@ -42,12 +42,17 @@ window.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
 
             // TODO: Highlight the intersecting section in the navigation bar
-            /*
             console.log(entry.target.id);
+
+            // TODO: Dynamically target the active section and it's corresponding list item
+            const link1 = document.querySelector('a:first-of-type');
+
             if(entry.target.id === "section1" && entry.isIntersecting){
-                // Highlight navigation list item
+                console.log("Highlight Section 1 link");
+                link1.style.color = 'red';
+            } else {
+                link1.style.color = 'black';
             }
-            */
 
             // If target is not intersecting, exit this function
             if (!entry.isIntersecting) {
