@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const sections = document.querySelectorAll('section');    // Note: Cannot have a single observer on a nodelist
 
 
-    //  Add all section sames to navigation, including future added sections with set data-nav attribute
+    //  Add all section names to navigation, including future added sections with set data-nav attribute
     const buildNav = () => {
 
         const navbarList = document.getElementById('navbar_list');
