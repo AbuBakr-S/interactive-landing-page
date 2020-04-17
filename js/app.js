@@ -32,8 +32,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     buildNav();
 
-
-
     const options = {
     root: null,   // This is the viewport
     threshold: 1,   // 0 value will fire for any part of the target. 1 value will fire if 100% of the target is visible inside the viewport  

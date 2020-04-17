@@ -92,8 +92,4 @@ footer p {
         justify-content: space-evenly;
         flex-wrap: wrap;
     }
-
-    nav.navbar ul li {
-        padding-bottom: 1vh;
-    }
 }
