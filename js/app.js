@@ -9,10 +9,13 @@
 // Remember this doesn't wait for CSS!
 window.addEventListener('DOMContentLoaded', () => {
 
+    // Store each <section> in a nodeList
+    const sections = document.querySelectorAll('section');    // Note: Cannot have a single observer on a nodelist
+
+
     //  Add all section sames to navigation, including future added sections with set data-nav attribute
     const buildNav = () => {
 
-        const sections = document.querySelectorAll('section[data-nav]');
         const navbarList = document.getElementById('navbar_list');
 
         let counter = 1;    // Counter for Section Number
@@ -30,7 +33,6 @@ window.addEventListener('DOMContentLoaded', () => {
     buildNav();
 
 
-    const sections = document.querySelectorAll('section');    // Note: Cannot have a single observer on a nodelist
 
     const options = {
     root: null,   // This is the viewport
