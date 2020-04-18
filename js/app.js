@@ -32,17 +32,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     buildNav();
 
-
-    // Objective: Hide nav when not scrolling. 
-    // Current state: This only fires once on the first scroll event after 3 seconds and does not adjust (restart timer) for proceeding events.
-    document.addEventListener('scroll', function (e){
-        setTimeout(function hideNav(){
-            const nav = document.getElementById('nav');
-            nav.style.display = 'none';
-        }, 3000);
-    });
-
-
     const options = {
     root: null,   // This is the viewport
     threshold: 1,   // 0 value will fire for any part of the target. 1 value will fire if 100% of the target is visible inside the viewport  
