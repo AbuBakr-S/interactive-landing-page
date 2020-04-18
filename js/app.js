@@ -33,16 +33,24 @@ window.addEventListener('DOMContentLoaded', () => {
     buildNav();
 
     
-    // Objective: Hide nav when not scrolling. 
-    // Current state: setTimeout is not waiting for user to stop scrolling. It's triggering a 3 second delay for the first scroll event.
-    document.addEventListener('scroll', function (e){
-        setTimeout(function hideNav(){
-            const nav = document.getElementById('nav');
-            nav.style.display = 'none';
-        }, 3000);
-    });
-    
+    // Hide navigation bar when scrolling
+    let timer = null;
+    let nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
 
+    // TODO: Ensure navigation is permanently visible when scrolled to top of page
+        if(timer !== null) {
+            clearTimeout(timer);  
+            nav.style.display = 'block';      
+        }
+        
+        timer = setTimeout(function() {
+              nav.style.display = 'none';
+        }, 1000);
+    }, false);
+
+
+    // Intersection Observer - Is a given section visible in the viewport? If so, make it stand out with an active class.
     const options = {
     root: null,   // This is the viewport
     threshold: 1,   // 0 value will fire for any part of the target. 1 value will fire if 100% of the target is visible inside the viewport  
