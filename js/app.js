@@ -32,6 +32,31 @@ window.addEventListener('DOMContentLoaded', () => {
 
     buildNav();
 
+    // Hide navigation bar when scrolling
+    let timer = null;
+    let nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+
+    // TODO: Look for a more performant solution.    
+    console.log(this.window.scrollY);
+
+        if(timer !== null) {
+            clearTimeout(timer);  
+            nav.style.display = 'block';      
+        }
+        
+        timer = setTimeout(function() {
+              // Ensure navigation is permanently visible when scrolled to top of page
+              if (this.window.scrollY === 0){
+                  nav.style.display = 'block';
+              } else {
+                nav.style.display = 'none';
+              }
+        }, 1000);
+    }, false);
+
+
+    // Intersection Observer - Is a given section visible in the viewport? If so, make it stand out with an active class.
     const options = {
     root: null,   // This is the viewport
     threshold: 1,   // 0 value will fire for any part of the target. 1 value will fire if 100% of the target is visible inside the viewport  
