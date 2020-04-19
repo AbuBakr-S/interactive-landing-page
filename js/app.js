@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
               } else {
                 nav.style.display = 'none';
               }
-        }, 1000);
+        }, 2500);
     }, false);
 
 
