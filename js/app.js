@@ -32,20 +32,26 @@ window.addEventListener('DOMContentLoaded', () => {
 
     buildNav();
 
-    
     // Hide navigation bar when scrolling
     let timer = null;
     let nav = document.getElementById('nav');
     window.addEventListener('scroll', function() {
 
-    // TODO: Ensure navigation is permanently visible when scrolled to top of page
+    // TODO: Look for a more performant solution.    
+    console.log(this.window.scrollY);
+
         if(timer !== null) {
             clearTimeout(timer);  
             nav.style.display = 'block';      
         }
         
         timer = setTimeout(function() {
-              nav.style.display = 'none';
+              // Ensure navigation is permanently visible when scrolled to top of page
+              if (this.window.scrollY === 0){
+                  nav.style.display = 'block';
+              } else {
+                nav.style.display = 'none';
+              }
         }, 1000);
     }, false);
 
