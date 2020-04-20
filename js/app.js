@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
             } else {
                 nav.style.display = 'none';
               }
-        }, 1000);
+        }, 375);
     }, false);
 
     // Intersection Observer - Is a given section visible in the viewport? If so, make it stand out with an active class.
