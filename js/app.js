@@ -29,6 +29,38 @@ window.addEventListener('DOMContentLoaded', () => {
     buildNav();
 
 
+    // Connect nav link to section position
+    const sectionPosition = () => {
+        const sectionY = [];
+        const sectionX = [];
+
+        for (const section of sections) {            
+            let position = section.getBoundingClientRect();
+            console.log(position);
+            sectionY.push(position.y);
+            sectionX.push(position.x);
+        }
+
+        console.log(`Section Top Position: ${sectionY}`);
+
+        
+        const firstNavItem = document.querySelector('a');
+        const sectionYPos = sectionY[0];
+        const sectionXPos = sectionX[0];
+
+        firstNavItem.addEventListener('click', () => window.scrollTo({top: sectionYPos, x: sectionXPos, behavior: 'smooth'}));
+
+
+        /*
+        sectionTop.forEach((element) => {
+
+        });
+        */
+
+    }
+
+    sectionPosition();
+
 
     // Hide navigation bar when scrolling
     let timer = null;
