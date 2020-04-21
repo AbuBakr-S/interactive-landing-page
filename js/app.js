@@ -30,32 +30,45 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-    const getSectionPosition = () => {
-        // y, x positions of section
-        const yPosition = [];
-        const xPosition = [];
 
-        // Loop through each section and store the y, x positions in the variables declared above
-        for (const section of sections) {            
-            const position = section.getBoundingClientRect();
-            console.log(position);
-            yPosition.push(position.y);
-            xPosition.push(position.x);
-        }
 
-        // TODO: Target all anchors
-        const anchor = document.querySelector('a');
-        // TODO: Separate out function
-        anchor.addEventListener('click', function() {
-        // TODO: Dynamically access corresponding yPosition and xPosition
-        window.scrollTo({top: yPosition[0], x: xPosition[0], behavior: 'smooth'});
+
+
+    /*** Testing Scroll to Section Feature ***/
+    const scroll = (e) => {
+
+        console.log(e);
+        
+        window.scrollTo({
+            top, // scroll so that the element is at the top of the view
+            behavior: 'smooth' // smooth scroll
         });
-
     }
 
+    const sectionsArray = document.querySelectorAll('section');
+    const anchorsArray = document.querySelectorAll('a');
 
-    getSectionPosition();
+    const top = section1.getBoundingClientRect().top + window.pageYOffset;
 
+    // Set scrollTo position
+    sectionsArray.forEach(function(section) {
+        const sectionPos = section.getBoundingClientRect().top + window.pageYOffset;
+        console.log(`Section: ${sectionPos}`);
+
+    });
+
+    
+    anchorsArray.forEach(function(anchor) {
+        console.log(anchor);
+        anchor.addEventListener('click', scroll);
+    });
+
+
+    
+
+
+
+    
 
 
     // Hide navigation bar when scrolling
@@ -64,7 +77,7 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', function() {
 
     // TODO: Look for a more performant solution.    
-    console.log(this.window.scrollY);
+    //console.log(this.window.scrollY);
 
         if(timer !== null) {
             clearTimeout(timer);  
