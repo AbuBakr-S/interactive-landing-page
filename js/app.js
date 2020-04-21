@@ -29,37 +29,33 @@ window.addEventListener('DOMContentLoaded', () => {
     buildNav();
 
 
-    // Connect nav link to section position
-    const sectionPosition = () => {
-        const sectionY = [];
-        const sectionX = [];
 
+    const getSectionPosition = () => {
+        // y, x positions of section
+        const yPosition = [];
+        const xPosition = [];
+
+        // Loop through each section and store the y, x positions in the variables declared above
         for (const section of sections) {            
-            let position = section.getBoundingClientRect();
+            const position = section.getBoundingClientRect();
             console.log(position);
-            sectionY.push(position.y);
-            sectionX.push(position.x);
+            yPosition.push(position.y);
+            xPosition.push(position.x);
         }
 
-        console.log(`Section Top Position: ${sectionY}`);
-
-        
-        const firstNavItem = document.querySelector('a');
-        const sectionYPos = sectionY[0];
-        const sectionXPos = sectionX[0];
-
-        firstNavItem.addEventListener('click', () => window.scrollTo({top: sectionYPos, x: sectionXPos, behavior: 'smooth'}));
-
-
-        /*
-        sectionTop.forEach((element) => {
-
+        // TODO: Target all anchors
+        const anchor = document.querySelector('a');
+        // TODO: Separate out function
+        anchor.addEventListener('click', function() {
+        // TODO: Dynamically access corresponding yPosition and xPosition
+        window.scrollTo({top: yPosition[0], x: xPosition[0], behavior: 'smooth'});
         });
-        */
 
     }
 
-    sectionPosition();
+
+    getSectionPosition();
+
 
 
     // Hide navigation bar when scrolling
