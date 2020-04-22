@@ -27,6 +27,11 @@ h1 {
     margin: 1.5em;
 }
 
+.navbar {
+    text-decoration: none;
+    color: #000;
+}
+
 nav.navbar ul {
     padding: 0;
 }
@@ -37,13 +42,8 @@ nav.navbar ul li {
     padding: 0;
 }
 
-nav.navbar ul li a {
-    text-decoration: none;
-    color: #000;
-}
-
 nav.navbar ul li a:hover {
-    color: #000;
+    color: red;
     text-decoration: underline;
 }
 
@@ -74,5 +74,6 @@ footer p {
 }
 
 .red {
-    color: red !important;
+    color: red;
+    text-decoration: underline;
 }
