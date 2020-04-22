@@ -72,14 +72,23 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     const observer = new IntersectionObserver(function(entries, observer) {
+
         entries.forEach(entry => {
+
+            var sectionID = entry.target.id;
+            var dataAnchor = document.querySelector(`a[data-anchor=${sectionID}]`);     // This is the anchor element corresponding to the visible section
+
             // If target is not intersecting, exit this function
             if (!entry.isIntersecting) {
                 entry.target.classList.remove('active');
+                dataAnchor.classList.remove('highlight');
                 return;
             }
             entry.target.classList.toggle('active');
+            dataAnchor.classList.add('highlight');
+            console.log(dataAnchor);
         });
+        
     }, options);
 
     sections.forEach(section => {
