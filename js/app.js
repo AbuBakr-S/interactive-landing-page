@@ -35,6 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
       
     // Add a single event listener to the <ul>
+    // TODO: When clicking within the nav ul area, around an anchor, browser throws an "Uncaught TypeError..."
     navbarList.addEventListener('click', scrollToLinkSection);
 
 
