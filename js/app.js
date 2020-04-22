@@ -17,11 +17,9 @@ window.addEventListener('DOMContentLoaded', () => {
         const myDocFrag = document.createDocumentFragment(); 
         for (const section of sections) {
             const sectionName = section.dataset.nav;
-            const navItem = document.createElement('li');
             // The data-anchor is set to the section id for the scrollToLinkSection function to work
-            const navContent = `<a data-anchor=${section.id}>${sectionName}</a>`;
-            navItem.insertAdjacentHTML('afterbegin', navContent);            
-            myDocFrag.appendChild(navItem);
+            const navItem = `<li><a data-anchor=${section.id}>${sectionName}</a></li>`;          
+            navbarList.insertAdjacentHTML('beforeend', navItem);
         }
 
         navbarList.appendChild(myDocFrag);
