@@ -18,7 +18,8 @@ window.addEventListener('DOMContentLoaded', () => {
         for (const section of sections) {
             const sectionName = section.dataset.nav;
             const navItem = document.createElement('li');
-            const navContent = `<a>${sectionName}</a>`;
+            // The data-anchor is set to the section id for the scrollToLinkSection function to work
+            const navContent = `<a data-anchor=${section.id}>${sectionName}</a>`;
             navItem.insertAdjacentHTML('afterbegin', navContent);            
             myDocFrag.appendChild(navItem);
         }
@@ -29,46 +30,17 @@ window.addEventListener('DOMContentLoaded', () => {
     buildNav();
 
 
-
-
-
-
-
-    /*** Testing Scroll to Section Feature ***/
-    const scroll = (e) => {
-
-        console.log(e);
-        
-        window.scrollTo({
-            top, // scroll so that the element is at the top of the view
-            behavior: 'smooth' // smooth scroll
-        });
-    }
-
-    const sectionsArray = document.querySelectorAll('section');
-    const anchorsArray = document.querySelectorAll('a');
-
-    const top = section1.getBoundingClientRect().top + window.pageYOffset;
-
-    // Set scrollTo position
-    sectionsArray.forEach(function(section) {
-        const sectionPos = section.getBoundingClientRect().top + window.pageYOffset;
-        console.log(`Section: ${sectionPos}`);
-
-    });
-
-    
-    anchorsArray.forEach(function(anchor) {
+    // Locate the section position by referencing the section id value added to data-anchor
+    const scrollToLinkSection = (event) => {
+        const anchor = event.target.dataset.anchor;
         console.log(anchor);
-        anchor.addEventListener('click', scroll);
+        document.getElementById(anchor).scrollIntoView({ behavior: 'smooth'});
+    }
+      
+    // Loop through each anchor and add an event listener
+    document.querySelectorAll('a').forEach((elem) => {
+        elem.addEventListener('click', scrollToLinkSection);
     });
-
-
-    
-
-
-
-    
 
 
     // Hide navigation bar when scrolling
