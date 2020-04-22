@@ -71,7 +71,7 @@ window.addEventListener('DOMContentLoaded', () => {
     rootMargin: "10% 0px 10% 0px"
     };
 
-    const observer = new IntersectionObserver(function(entries, observer) {
+    const observer = new IntersectionObserver(function(entries) {
 
         entries.forEach(entry => {
 
