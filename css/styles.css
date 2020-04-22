@@ -64,16 +64,18 @@ section p {
     line-height: 1.5em;
 }
 
-.active {
-    background-color: #1D81A1;
-    color: #fff;
-}
 
 footer p {
     text-align: center;
 }
 
-.red {
+/* Change State */
+.active {
+    background-color: #1D81A1;
+    color: #fff;
+}
+
+.highlight {
     color: red;
     text-decoration: underline;
 }

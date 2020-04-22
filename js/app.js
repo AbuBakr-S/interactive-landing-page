@@ -81,11 +81,11 @@ window.addEventListener('DOMContentLoaded', () => {
             // If target is not intersecting, exit this function
             if (!entry.isIntersecting) {
                 entry.target.classList.remove('active');
-                dataAnchor.classList.remove('red');
+                dataAnchor.classList.remove('highlight');
                 return;
             }
             entry.target.classList.toggle('active');
-            dataAnchor.classList.add('red');
+            dataAnchor.classList.add('highlight');
             console.log(dataAnchor);
         });
         
