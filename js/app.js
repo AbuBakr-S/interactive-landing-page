@@ -18,7 +18,8 @@ window.addEventListener('DOMContentLoaded', () => {
         for (const section of sections) {
             const sectionName = section.dataset.nav;
             const navItem = document.createElement('li');
-            const navContent = `<a>${sectionName}</a>`;
+            // The data-anchor is set to the section id for the scrollToLinkSection function to work
+            const navContent = `<a data-anchor=${section.id}>${sectionName}</a>`;
             navItem.insertAdjacentHTML('afterbegin', navContent);            
             myDocFrag.appendChild(navItem);
         }
@@ -29,6 +30,18 @@ window.addEventListener('DOMContentLoaded', () => {
     buildNav();
 
 
+    // Locate the section position by referencing the section id value added to data-anchor
+    const scrollToLinkSection = (event) => {
+        const anchor = event.target.dataset.anchor;
+        console.log(anchor);
+        document.getElementById(anchor).scrollIntoView({ behavior: 'smooth'});
+    }
+      
+    // Loop through each anchor and add an event listener
+    document.querySelectorAll('a').forEach((elem) => {
+        elem.addEventListener('click', scrollToLinkSection);
+    });
+
 
     // Hide navigation bar when scrolling
     let timer = null;
@@ -36,7 +49,7 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', function() {
 
     // TODO: Look for a more performant solution.    
-    console.log(this.window.scrollY);
+    //console.log(this.window.scrollY);
 
         if(timer !== null) {
             clearTimeout(timer);  
