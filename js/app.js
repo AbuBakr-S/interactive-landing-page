@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Hide navigation bar when scrolling
     let timer = null;
-    let nav = document.getElementById('nav');
+    const nav = document.getElementById('nav');
     window.addEventListener('scroll', function() {
 
     // TODO: Look for a more performant solution.    
