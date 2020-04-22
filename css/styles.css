@@ -22,7 +22,9 @@ h1 {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
     height: 8vh;
+    margin: 1.5em;
 }
 
 nav.navbar ul {
@@ -69,23 +71,4 @@ section p {
 
 footer p {
     text-align: center;
-}
-
-/* Mobile */
-
-@media only screen and (max-width: 600px) {
-    h1 {
-        margin-top: 10vh;
-    }
-
-    .navbar {
-        position: relative;
-        top: 0;
-    }
-
-    .list {
-        padding: 5vw;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-    }
 }
