@@ -34,9 +34,11 @@ window.addEventListener('DOMContentLoaded', () => {
         console.log(anchor);
         document.getElementById(anchor).scrollIntoView({ behavior: 'smooth'});
     }
-
-    // Add a single event listener to the <ul>
-    navbarList.addEventListener('click', scrollToLinkSection);
+      
+    // Loop through each anchor and add an event listener
+    document.querySelectorAll('a').forEach((elem) => {
+        elem.addEventListener('click', scrollToLinkSection);
+    });
 
 
     // Hide navigation bar when scrolling
