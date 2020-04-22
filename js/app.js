@@ -73,8 +73,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const observer = new IntersectionObserver(function(entries, observer) {
 
-
-
         entries.forEach(entry => {
 
             var sectionID = entry.target.id;
@@ -90,6 +88,7 @@ window.addEventListener('DOMContentLoaded', () => {
             dataAnchor.classList.add('red');
             console.log(dataAnchor);
         });
+        
     }, options);
 
     sections.forEach(section => {
