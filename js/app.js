@@ -31,7 +31,6 @@ window.addEventListener('DOMContentLoaded', () => {
     // Locate the section position by referencing the section id value added to data-anchor
     const scrollToLinkSection = (event) => {
         const anchor = event.target.dataset.anchor;
-        console.log(anchor);
         document.getElementById(anchor).scrollIntoView({ behavior: 'smooth'});
     }
       
@@ -43,9 +42,6 @@ window.addEventListener('DOMContentLoaded', () => {
     let timer = null;
     const nav = document.getElementById('nav');
     window.addEventListener('scroll', function() {
-
-    // TODO: Look for a more performant solution.    
-    //console.log(this.window.scrollY);
 
         if(timer !== null) {
             clearTimeout(timer);  
@@ -80,13 +76,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // If target is not intersecting, exit this function
             if (!entry.isIntersecting) {
-                entry.target.classList.remove('active');
-                dataAnchor.classList.remove('highlight');
-                return;
+                // Clear active states
+                entry.target.classList.remove('active');    // Section clear
+                dataAnchor.classList.remove('highlight');   // Anchor clear
+            } else {
+                // Set active states
+                entry.target.classList.toggle('active');    // Section active
+                dataAnchor.classList.add('highlight');      // Anchor active
             }
-            entry.target.classList.toggle('active');
-            dataAnchor.classList.add('highlight');
-            console.log(dataAnchor);
         });
         
     }, options);
