@@ -30,8 +30,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Locate the section position by referencing the section id value added to data-anchor
     const scrollToLinkSection = (event) => {
-        const anchor = event.target.dataset.anchor;
-        document.getElementById(anchor).scrollIntoView({ behavior: 'smooth'});
+
+        // Ensure the node type is correctly set to A (Anchor) in event delegation to prevent calling scrollIntoView on the UL (unordered list).
+        if(event.target.nodeName === 'A'){
+            const anchor = event.target.dataset.anchor;
+            document.getElementById(anchor).scrollIntoView({ behavior: 'smooth'});
+        }
     }
       
     // Add a single event listener to the <ul>
@@ -59,7 +63,6 @@ window.addEventListener('DOMContentLoaded', () => {
         }, 375);
     }, false);
 
-    
 
     // Intersection Observer - Is a given section visible in the viewport? If so, make it stand out with an active class.
     const options = {
