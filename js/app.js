@@ -10,6 +10,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // Store each <section> in a nodeList
     const sections = document.querySelectorAll('section');    // Note: Cannot have a single observer on a nodelist
     const navbarList = document.getElementById('navbar_list');
+    const nav = document.getElementById('nav');
 
     //  Add all section names to navigation, including future added sections with set data-nav attribute
     const buildNav = () => {
@@ -28,6 +29,12 @@ window.addEventListener('DOMContentLoaded', () => {
     buildNav();
 
 
+    // Show nav on mousemove
+    document.addEventListener('mousemove', () => {
+        nav.style.display = 'block';
+    });
+
+
     // Locate the section position by referencing the section id value added to data-anchor
     const scrollToLinkSection = (event) => {
 
@@ -44,7 +51,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Hide navigation bar when scrolling
     let timer = null;
-    const nav = document.getElementById('nav');
     window.addEventListener('scroll', function() {
 
         if(timer !== null) {
