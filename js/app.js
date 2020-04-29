@@ -49,7 +49,6 @@ window.addEventListener('DOMContentLoaded', () => {
     navbarList.addEventListener('click', scrollToLinkSection);
 
 
-
     // Hide navigation bar when scrolling
     let timer = null;
     window.addEventListener('scroll', function() {
@@ -70,23 +69,13 @@ window.addEventListener('DOMContentLoaded', () => {
     }, false);
 
 
-    // Helper function for section in full view
-    const isSectionInViewport = (elem) => {
-        const distance = elem.getBoundingClientRect();
-        return (
-            distance.top >= 0 &&
-            distance.bottom <= (window.innerHeight)
-        );
-    };
-
-
     // Add active state to the section that's scrolled into viewe
-    window.addEventListener('scroll', function() {
-
+    const isViewable = () => {
         for (section of sections){
             const link = document.querySelector(`a[data-anchor="${section.id}"]`);
-
-            if(isSectionInViewport(section)){
+            const viewableEl = section.getBoundingClientRect();
+    
+            if(viewableEl.top <= 300 && viewableEl.bottom >= 150){
                 section.classList.add('active');
                 link.classList.add('highlight');
             } else {
@@ -94,7 +83,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 link.classList.remove('highlight');
             }
         }
-    });
+    }
+
+    document.addEventListener('scroll', isViewable);
 
 
 });
