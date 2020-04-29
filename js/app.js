@@ -49,56 +49,25 @@ window.addEventListener('DOMContentLoaded', () => {
     navbarList.addEventListener('click', scrollToLinkSection);
 
 
-    // Hide navigation bar when scrolling
-    let timer = null;
-    window.addEventListener('scroll', function() {
-
-        if(timer !== null) {
-            clearTimeout(timer);  
-            nav.style.display = 'block';      
-        }
- 
-        timer = setTimeout(function() {
-            // Ensure navigation is permanently visible when scrolled to top of page
-            if (this.window.scrollY === 0){
-                nav.style.display = 'block';
+    // Add active state to the section that's scrolled into viewe
+    const isViewable = () => {
+        for (section of sections){
+            const link = document.querySelector(`a[data-anchor="${section.id}"]`);
+            const viewableEl = section.getBoundingClientRect();
+    
+            if(viewableEl.top<= 335 && viewableEl.bottom >= 180){
+                section.classList.add('active');
+                link.classList.add('highlight');
             } else {
-                nav.style.display = 'none';
-              }
-        }, 375);
-    }, false);
-
-
-    // Intersection Observer - Is a given section visible in the viewport? If so, make it stand out with an active class.
-    const options = {
-    root: null,   // This is the viewport
-    threshold: 1,   // 0 value will fire for any part of the target. 1 value will fire if 100% of the target is visible inside the viewport  
-    rootMargin: "0px 0px 0px 0px"
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-
-        entries.forEach(entry => {
-
-            var sectionID = entry.target.id;
-            var dataAnchor = document.querySelector(`a[data-anchor=${sectionID}]`);     // This is the anchor element corresponding to the visible section
-
-            // If target is not intersecting, exit this function
-            if (!entry.isIntersecting) {
-                // Clear active states
-                entry.target.classList.remove('active');    // Section clear
-                dataAnchor.classList.remove('highlight');   // Anchor clear
-            } else {
-                // Set active states
-                entry.target.classList.toggle('active');    // Section active
-                dataAnchor.classList.add('highlight');      // Anchor active
+                section.classList.remove('active');
+                link.classList.remove('highlight');
             }
-        });
-        
-    }, options);
+        }
+    }
 
-    sections.forEach(section => {
-        observer.observe(section);
-    });
+    document.addEventListener('scroll', isViewable);
+
+
+    console.log(nav.getBoundingClientRect())
 
 });
