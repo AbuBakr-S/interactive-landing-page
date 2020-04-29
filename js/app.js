@@ -49,6 +49,7 @@ window.addEventListener('DOMContentLoaded', () => {
     navbarList.addEventListener('click', scrollToLinkSection);
 
 
+
     // Hide navigation bar when scrolling
     let timer = null;
     window.addEventListener('scroll', function() {
@@ -69,36 +70,31 @@ window.addEventListener('DOMContentLoaded', () => {
     }, false);
 
 
-    // Intersection Observer - Is a given section visible in the viewport? If so, make it stand out with an active class.
-    const options = {
-    root: null,   // This is the viewport
-    threshold: 1,   // 0 value will fire for any part of the target. 1 value will fire if 100% of the target is visible inside the viewport  
-    rootMargin: "0px 0px 0px 0px"
+    // Helper function for section in full view
+    const isSectionInViewport = (elem) => {
+        const distance = elem.getBoundingClientRect();
+        return (
+            distance.top >= 0 &&
+            distance.bottom <= (window.innerHeight)
+        );
     };
 
-    const observer = new IntersectionObserver(function(entries) {
 
-        entries.forEach(entry => {
+    // Add active state to the section that's scrolled into viewe
+    window.addEventListener('scroll', function() {
 
-            var sectionID = entry.target.id;
-            var dataAnchor = document.querySelector(`a[data-anchor=${sectionID}]`);     // This is the anchor element corresponding to the visible section
+        for (section of sections){
+            const link = document.querySelector(`a[data-anchor="${section.id}"]`);
 
-            // If target is not intersecting, exit this function
-            if (!entry.isIntersecting) {
-                // Clear active states
-                entry.target.classList.remove('active');    // Section clear
-                dataAnchor.classList.remove('highlight');   // Anchor clear
+            if(isSectionInViewport(section)){
+                section.classList.add('active');
+                link.classList.add('highlight');
             } else {
-                // Set active states
-                entry.target.classList.toggle('active');    // Section active
-                dataAnchor.classList.add('highlight');      // Anchor active
+                section.classList.remove('active');
+                link.classList.remove('highlight');
             }
-        });
-        
-    }, options);
-
-    sections.forEach(section => {
-        observer.observe(section);
+        }
     });
+
 
 });
