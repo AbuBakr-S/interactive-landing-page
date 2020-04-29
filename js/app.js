@@ -49,33 +49,13 @@ window.addEventListener('DOMContentLoaded', () => {
     navbarList.addEventListener('click', scrollToLinkSection);
 
 
-    // Hide navigation bar when scrolling
-    let timer = null;
-    window.addEventListener('scroll', function() {
-
-        if(timer !== null) {
-            clearTimeout(timer);  
-            nav.style.display = 'block';      
-        }
- 
-        timer = setTimeout(function() {
-            // Ensure navigation is permanently visible when scrolled to top of page
-            if (this.window.scrollY === 0){
-                nav.style.display = 'block';
-            } else {
-                nav.style.display = 'none';
-              }
-        }, 375);
-    }, false);
-
-
     // Add active state to the section that's scrolled into viewe
     const isViewable = () => {
         for (section of sections){
             const link = document.querySelector(`a[data-anchor="${section.id}"]`);
             const viewableEl = section.getBoundingClientRect();
     
-            if(viewableEl.top <= 300 && viewableEl.bottom >= 150){
+            if(viewableEl.top<= 335 && viewableEl.bottom >= 180){
                 section.classList.add('active');
                 link.classList.add('highlight');
             } else {
@@ -87,5 +67,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('scroll', isViewable);
 
+
+    console.log(nav.getBoundingClientRect())
 
 });
