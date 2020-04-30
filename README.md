@@ -6,3 +6,10 @@ In this project, I have created a multi-section landing page which dynamically b
 I have used the getBoundingClientRect() method to identify which section is visible in the viewport and have added an `active` class to illustrate this to the user. 
 
 I have also added the `highlight` class to illustrate the the viewable section in the navigation. 
+
+## Navigation Bar
+- The navigation bar will be fixed when the document is scrolled to the top of the page.
+
+- I have used the `setTimeOut()` method to check for when the user has stopped scrolling, in which case the navigation bar will be hidden from view. 
+
+- The navigatio bar will reappear, fixed, onmousemove.
