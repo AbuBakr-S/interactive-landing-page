@@ -89,7 +89,4 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('scroll', isViewable);
 
-
-    console.log(nav.getBoundingClientRect())
-
 });
