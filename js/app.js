@@ -49,7 +49,6 @@ window.addEventListener('DOMContentLoaded', () => {
     navbarList.addEventListener('click', scrollToLinkSection);
 
 
-
     // Hide navigation bar when scrolling
     let timer = null;
     window.addEventListener('scroll', function() {
@@ -68,7 +67,6 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         }, 375);
     }, false);
-
 
 
     // Add active state to the section that's scrolled into viewe
