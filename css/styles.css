@@ -17,6 +17,8 @@ h1 {
     top: 0;
     width: 100vw;
     background-color: #b8ecfc;
+    text-decoration: none;
+    color: #000;
 }
 
 .list {
@@ -26,11 +28,6 @@ h1 {
     flex-wrap: wrap;
     height: 8vh;
     margin: 1.5em;
-}
-
-.navbar {
-    text-decoration: none;
-    color: #000;
 }
 
 nav.navbar ul {
