@@ -48,27 +48,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // Add a single event listener to the <ul>
     navbarList.addEventListener('click', scrollToLinkSection);
 
-
-    // Hide navigation bar when scrolling
-    let timer = null;
-    window.addEventListener('scroll', function() {
-
-        if(timer !== null) {
-            clearTimeout(timer);  
-            nav.style.display = 'block';      
-        }
-
-        timer = setTimeout(function() {
-            // Ensure navigation is permanently visible when scrolled to top of page
-            if (this.window.scrollY === 0){
-                nav.style.display = 'block';
-            } else {
-                nav.style.display = 'none';
-            }
-        }, 375);
-    }, false);
-
-
+    
     // Add active state to the section that's scrolled into viewe
     const isViewable = () => {
         for (section of sections){
